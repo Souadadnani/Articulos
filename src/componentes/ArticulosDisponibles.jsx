@@ -6,13 +6,9 @@ export default function ArticulosDisponibles({articulos}){
 
     const [filterText, setFilterText] = useState('');
     return(
-        <>
-            <div>
-                <BarraBusqueda/>
-            </div>
-            <div>
-                <Articulos productos={articulos}/>
-            </div>
+        <>           
+            <BarraBusqueda filterText={filterText} setFilterText={setFilterText}/>
+            <Articulos articulos={articulos} filterText={filterText} setFilterText={setFilterText}/>           
         </>
     )
 

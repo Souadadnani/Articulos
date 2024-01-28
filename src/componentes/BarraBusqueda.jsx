@@ -1,9 +1,9 @@
-export default function BarraBusqueda({articulos, filterText, setFilterText}){
+export default function BarraBusqueda({filterText, setFilterText}){
 
-    return(
-      
-        <input nombre="buscar" placeholder="Buscar"></input>
-        
+    return( 
+       
+        <input type="text" name="buscar" value={filterText} placeholder="Buscar" onChange={(e)=> setFilterText(e.target.value)}/>
+   
     )
 
 }

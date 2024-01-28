@@ -1,7 +1,7 @@
-export default function Articulos({articulos}){
-    const array = articulos.map()
-    return(
-        
+export default function Articulos({articulos, filterText, setFilterText}){
+    
+    return(   
+        <div>
             <table>
                 <thead>
                     <tr>
@@ -12,11 +12,18 @@ export default function Articulos({articulos}){
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td></td>
-                    </tr>
+                    {articulos.map((element, index) => {
+                        return(
+                            <tr key={index}>
+                                <td>{element.nombre}</td>
+                                <td>{element.precio}</td>
+                                <td>{element.unidades}</td>
+                                <td><button>Comprar</button></td>
+                            </tr>
+                        )
+                    })}
                 </tbody>
-            </table>
-       
+            </table> 
+        </div>      
     )
 }
