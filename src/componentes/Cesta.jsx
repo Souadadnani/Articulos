@@ -1,9 +1,8 @@
 export default function Cesta({articulos}){
 
     return(
-        <></>
-    
-      /*   <div className="cesta">
+        <>
+        <div>
             <table>
                 {articulos.map((element, index) => {
                     return(
@@ -14,7 +13,10 @@ export default function Cesta({articulos}){
                         </tr>
                 )})}             
             </table>
-        </div> */
+        </div> 
+        </>
+    
+
       
     )
 }

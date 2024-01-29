@@ -1,6 +1,7 @@
 import './App.css'
 import Cesta from './componentes/Cesta';
 import ArticulosDisponibles from './componentes/ArticulosDisponibles';
+import { useState } from 'react';
 
 function App(){
 
@@ -17,9 +18,11 @@ function App(){
     { nombre: "Software antivirus", precio: "$50", unidades: 60, codigo: "P010" }
   ];
 
+  const [articulosCesta, setArticulos] = useState('');
+
     return(
       <>
-        <Cesta articulos={ARTICULOS}/> 
+        <Cesta articulos={ARTICULOS} articulosCesta={articulosCesta} setArticulos={setArticulos}/> 
         <ArticulosDisponibles articulos={ARTICULOS}/>
       </>
     )

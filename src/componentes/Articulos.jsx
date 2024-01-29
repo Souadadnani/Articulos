@@ -1,5 +1,5 @@
-export default function Articulos({articulos, filterText, setFilterText}){
-    
+export default function Articulos({articulos, filterText}){
+ 
     return(   
         <div>
             <table>
@@ -12,16 +12,14 @@ export default function Articulos({articulos, filterText, setFilterText}){
                     </tr>
                 </thead>
                 <tbody>
-                    {articulos.map((element, index) => {
-                        return(
-                            <tr key={index}>
-                                <td>{element.nombre}</td>
-                                <td>{element.precio}</td>
-                                <td>{element.unidades}</td>
-                                <td><button>Comprar</button></td>
-                            </tr>
-                        )
-                    })}
+                    {articulos.filter(element=> element.nombre.toLowerCase().includes(filterText.toLowerCase())).map((element, index) =>                      
+                        <tr key={index}>
+                            <td>{element.nombre}</td>
+                            <td>{element.precio}</td>
+                            <td>{element.unidades}</td>
+                            <td><button>Comprar</button></td>
+                        </tr>                       
+                    )}
                 </tbody>
             </table> 
         </div>      
