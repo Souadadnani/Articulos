@@ -2,7 +2,7 @@ import { useState } from "react"
 import BarraBusqueda from "./BarraBusqueda";
 import Articulos from "./Articulos";
 
-export default function ArticulosDisponibles({articulos}){
+export default function ArticulosDisponibles({articulosDisponibles, setArticulosCesta, setArticulosDisponibles}){
 
     const [filterText, setFilterText] = useState('');
     
@@ -10,7 +10,7 @@ export default function ArticulosDisponibles({articulos}){
     return(
         <>           
             <BarraBusqueda filterText={filterText} setFilterText={setFilterText}/>
-            <Articulos articulos={articulos} filterText={filterText} />           
+            <Articulos articulosDisponibles={articulosDisponibles} setArticulosCesta={setArticulosCesta} setArticulosDisponibles={setArticulosDisponibles} filterText={filterText} />           
         </>
     )
 

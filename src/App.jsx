@@ -18,12 +18,13 @@ function App(){
     { nombre: "Software antivirus", precio: "$50", unidades: 60, codigo: "P010" }
   ];
 
-  const [articulosCesta, setArticulos] = useState('');
-
+  const [articulosDisponibles, setArticulosDisponibles] = useState(ARTICULOS);
+  const [articulosCesta, setArticulosCesta] = useState([]);
+  
     return(
       <>
-        <Cesta articulos={ARTICULOS} articulosCesta={articulosCesta} setArticulos={setArticulos}/> 
-        <ArticulosDisponibles articulos={ARTICULOS}/>
+        <Cesta articulosCesta={articulosCesta}/> 
+        <ArticulosDisponibles articulosDisponibles={articulosDisponibles} setArticulosCesta={setArticulosCesta} setArticulosDisponibles={setArticulosDisponibles}/>
       </>
     )
 }

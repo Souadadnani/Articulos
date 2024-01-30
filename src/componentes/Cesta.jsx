@@ -1,22 +1,12 @@
-export default function Cesta({articulos}){
+export default function Cesta({articulosCesta}){
 
-    return(
-        <>
-        <div>
-            <table>
-                {articulos.map((element, index) => {
-                    return(
-                        <tr key={index}>
-                            <td>{element.nombre}</td>
-                            <td>{element.precio}</td>
-                            <td>{element.codigo}</td>
-                        </tr>
-                )})}             
-            </table>
-        </div> 
-        </>
-    
-
-      
+    return(      
+       <div>
+            <ul>
+                {articulosCesta.map(element =>                                     
+                    <li key={element.codigo}>Producto: {element.nombre}, precio: {element.precio}</li>                                   
+                )}
+            </ul>                 
+       </div>   
     )
 }
