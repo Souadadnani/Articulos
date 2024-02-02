@@ -4,12 +4,14 @@ export default function Articulos({articulosDisponibles, filterText, setArticulo
     const articuloCesta ={
         nombre: articulo.nombre,
         precio: articulo.precio,
+        codigo: articulo.codigo
     }
     setArticulosCesta((previo)=>[...previo, articuloCesta]);
     setArticulosDisponibles(articulosDisponibles.map(art=>art.codigo === articulo.codigo ? {...art, unidades: art.unidades-1}: art));
  }
     return(   
         <div>
+            <h2>Articulos Disponibles</h2>
             <table>
                 <thead>
                     <tr>
