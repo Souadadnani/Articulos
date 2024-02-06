@@ -32,7 +32,7 @@ function App(){
       <>
         <Cesta articulosCesta={articulosCesta} setArticulosCesta={setArticulosCesta}/> 
         <BarraBusqueda filterText={filterText} setFilterText={setFilterText}/>
-        <ArticulosDisponibles filterText={filterText} setFilterText={setFilterText} useEffect={useEffect} articulosDisponibles={articulosDisponibles} setArticulosCesta={setArticulosCesta} setArticulosDisponibles={setArticulosDisponibles}/>
+        <ArticulosDisponibles filterText={filterText} setFilterText={setFilterText} articulosCesta={articulosCesta} useEffect={useEffect} articulosDisponibles={articulosDisponibles} setArticulosCesta={setArticulosCesta} setArticulosDisponibles={setArticulosDisponibles}/>
       </>
     )
 }

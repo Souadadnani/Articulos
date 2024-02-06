@@ -1,11 +1,23 @@
-export default function Articulos({articulosDisponibles, filterText, setArticulosCesta, setArticulosDisponibles,}){
+export default function Articulos({articulosDisponibles, articulosCesta, setArticulosCesta, setArticulosDisponibles,}){
 
  const agregarArticulo = (articulo)=>{
-    const articuloCesta ={
-        nombre: articulo.nombre,
-        precio: articulo.precio,
-        codigo: articulo.codigo
-    }
+    const articuloCesta = {};
+    articulosCesta.find(artCesta=>{
+        if(artCesta){
+            if(articulo.id === artCesta.id){
+                artCesta.unidades += 1;
+            }
+        }else{
+            articuloCesta ={
+                id: articulo.id,
+                nombre: articulo.nombre,
+                precio: articulo.precio,
+                unidades: 1
+            }
+        }
+        
+    })
+
     setArticulosCesta((previo)=>[...previo, articuloCesta]);
     setArticulosDisponibles(articulosDisponibles.map(art=>art.codigo === articulo.codigo ? {...art, unidades: art.unidades-1}: art));
  }
@@ -22,8 +34,8 @@ export default function Articulos({articulosDisponibles, filterText, setArticulo
                     </tr>
                 </thead>
                 <tbody>
-                    {articulosDisponibles.filter(element=> element.nombre.toLowerCase().includes(filterText.toLowerCase())).map(element =>                      
-                        <tr key={element.codigo}>
+                    {articulosDisponibles.map(element =>                      
+                        <tr key={element.id}>
                             <td>{element.nombre}</td>
                             <td>{element.precio}</td>
                             <td>{element.unidades}</td>

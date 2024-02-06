@@ -14,11 +14,12 @@ export default function Cesta({articulosCesta, setArticulosCesta, setArticulosDi
                     <tr>
                         <th>Nombre</th>
                         <th>Precio</th>
+                        <th>Unidades</th>
                     </tr>
                 </thead>
                 <tbody>
                     {articulosCesta.map((element, index) =>                      
-                        <tr key={index}>
+                        <tr key={element.id}>
                             <td>{element.nombre}</td>
                             <td>{element.precio}</td>
                             <td><button onClick={()=>eliminarArticulo(element)}>Eliminar</button></td>
