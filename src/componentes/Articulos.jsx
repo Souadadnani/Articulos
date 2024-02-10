@@ -1,8 +1,13 @@
 export default function Articulos({articulosDisponibles, articulosCesta, setArticulosCesta, setArticulosDisponibles,}){
 
  const agregarArticulo = (articulo)=>{
-    const articuloCesta = {};
-    articulosCesta.find(artCesta=>{
+    const articuloCesta ={
+        id: articulo.id,
+        nombre: articulo.nombre,
+        precio: articulo.precio,
+        unidades: 1
+    }
+   /*  articulosCesta.find(artCesta=>{
         if(artCesta){
             if(articulo.id === artCesta.id){
                 artCesta.unidades += 1;
@@ -16,7 +21,7 @@ export default function Articulos({articulosDisponibles, articulosCesta, setArti
             }
         }
         
-    })
+    }) */
 
     setArticulosCesta((previo)=>[...previo, articuloCesta]);
     setArticulosDisponibles(articulosDisponibles.map(art=>art.codigo === articulo.codigo ? {...art, unidades: art.unidades-1}: art));
